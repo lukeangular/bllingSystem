@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import { CustomerRoutingModule } from './customer-routing.module';
@@ -20,7 +21,8 @@ import { SelectedItemComponent } from './components/selected-item/selected-item.
     CommonModule,
     CustomerRoutingModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule
   ]
 })
 export class CustomerModule { }

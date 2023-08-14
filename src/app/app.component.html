@@ -1,7 +1,9 @@
 <mat-toolbar color="primary" class="navbar">
-    <span>Billing System</span>
+    <a mat-button routerLink="/">Menu list</a>
+    <a mat-button routerLink="/category">Category</a>
+    <a mat-button routerLink="/selected-item">Selected items</a>
 </mat-toolbar>
-<div class="main_container">
 
+<div class="main_container">
     <router-outlet></router-outlet>
 </div>

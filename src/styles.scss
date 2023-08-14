@@ -22,4 +22,22 @@ body {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 16px;
     row-gap: 24px;
+    .image_wrapper{
+        position: relative;
+        max-height: 200px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    span.discount_price{
+        margin-left: 10px;
+        text-decoration: line-through;
+        font-style: italic;
+        color: #777777 !important;
+    }
+}
+.pagination_wrapper{
+    padding: 16px;
+    padding-bottom: 16px;
 }
