@@ -1,1 +1,101 @@
-<p>admin home works!</p>
+
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Order No</th>
+            <th scope="col">Item</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container
+            *ngFor="let data of table_data, index as i; else elseBlock">
+            <tr>
+                <th scope="row">{{i+1}}</th>
+                <td data-bs-toggle="modal" data-bs-target="#detailModal" style="cursor: pointer;">
+                    {{data.name}}
+                </td>
+                <td>{{data.quantity}}</td>
+                <td>
+                    <b>Rs.</b>
+                    {{data.price}}
+                </td>
+                <td class="price_wrapper">
+                    <span>
+                        <b>Rs.</b>
+                        {{((data.price) *(data.quantity))-30}}
+                    </span>
+                    <span class="discount" *ngIf="data?.discount_price">
+                        Rs.{{data?.discount_price}}
+                    </span>
+                </td>
+                <td>
+                    <span *ngIf="data.status=='order'" class="badge bg-primary"
+                        data-bs-toggle="modal" data-bs-target="#statusModal">
+                        {{data.status}}
+                    </span>
+                    <span *ngIf="data.status=='placement'"
+                        class="badge bg-warning" data-bs-toggle="modal"
+                        data-bs-target="#statusModal">
+                        {{data.status}}
+                    </span>
+                    <span *ngIf="data.status=='paid'" class="badge bg-success"
+                        data-bs-toggle="modal" data-bs-target="#statusModal">
+                        {{data.status}}
+                    </span>
+                </td>
+            </tr>
+        </ng-container>
+        <ng-template #elseBlock>
+
+        </ng-template>
+    </tbody>
+</table>
+
+<!--Status Modal -->
+<div class="modal fade" id="statusModal" tabindex="-1"
+    aria-labelledby="statusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="statusModalLabel">Change status</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <select class="form-select" aria-label="Default select example" formControlName="status">
+                        <option selected disabled>Select status</option>
+                        <option value="order">Order</option>
+                        <option value="placement">Placment</option>
+                        <option value="paid">Paid</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" [disabled]="orderForm.invalid">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--Detail Modal -->
+<div class="modal fade" id="detailModal" tabindex="-1"
+    aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailModalLabel">Order Detail</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+        </div>
+    </div>
+</div>

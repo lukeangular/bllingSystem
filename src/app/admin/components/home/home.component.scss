@@ -1,0 +1,13 @@
+.price_wrapper{
+    display: flex;
+    column-gap: 16px;
+
+    span.discount{
+        color: #777777 !important;
+        text-decoration: line-through;
+        font-style: italic;
+    }
+}
+.badge{
+    cursor: pointer;
+}

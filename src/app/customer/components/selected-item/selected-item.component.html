@@ -25,78 +25,103 @@
     </div>
     <div class="selected_item__body">
         <div class="selected_item__body_left">
-            <div class="selected_item__body_left_wrapper">
-                <div class="menu_wrapper">
-                    <h6 mat-button (click)="openDialog()">
-                        Momo
-                    </h6>
-                    <p class="quantity">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                        <span>2</span>
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </p>
-                    <p>120</p>
-                    <p>
-                        <b>Rs</b> 240
-                    </p>
+            <form>
+                <div class="form_wrapper">
+                    <div class="selected_item__body_left_wrapper">
+                        <div class="menu_wrapper">
+                            <!-- <h6 mat-button (click)="openDialog()">
+                                Momo
+                            </h6> -->
+                            <h6 data-bs-toggle="modal"data-bs-target="#statusModal" style="cursor: pointer;">
+                                Momo
+                            </h6>
+                            <p class="quantity">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span>2</span>
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </p>
+                            <p>120</p>
+                            <p>
+                                <b>Rs</b> 240
+                            </p>
+                        </div>
+                        <div class="menu_wrapper">
+                            <h6 data-bs-toggle="modal"data-bs-target="#statusModal" style="cursor: pointer;">
+                                Momo
+                            </h6>
+                            <p class="quantity">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span>2</span>
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </p>
+                            <p>120</p>
+                            <p>
+                                <b>Rs</b> 240
+                            </p>
+                        </div>
+                        <div class="menu_wrapper">
+                            <h6 data-bs-toggle="modal"data-bs-target="#statusModal" style="cursor: pointer;">
+                                Momo
+                            </h6>
+                            <p class="quantity">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span>2</span>
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </p>
+                            <p>120</p>
+                            <p>
+                                <b>Rs</b> 240
+                            </p>
+                        </div>
+                        <div class="menu_wrapper">
+                            <h6 data-bs-toggle="modal"data-bs-target="#statusModal" style="cursor: pointer;">
+                                Momo
+                            </h6>
+                            <p class="quantity">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span>2</span>
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </p>
+                            <p>120</p>
+                            <p>
+                                <b>Rs</b> 240
+                            </p>
+                        </div>
+                    </div>
+                    <div class="selected_item__body_left_footer">
+                        <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+                            <div>
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" id="fullname" placeholder="Enter full name" formControlName="full_name">
+                                </div>
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" id="address" placeholder="Enter address" formControlName="address">
+                                </div>
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" id="phone number" placeholder="Phone number" formControlName="phone_number">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="price_wrapper">
+                                <p>
+                                    <span>Total Qtry : </span> 3
+                                </p>
+                                <p>
+                                    <span>Total Price : </span> <b>Rs.</b> 300
+                                </p>
+                                <p>
+                                    <span>Discount Price : </span> <b>Rs.</b> 50
+                                </p>
+                                <p>
+                                    <span>Net Price : </span> <b>Rs.</b> 250
+                                </p>
+                            </div> 
+                            <hr>
+                            <button class="btn btn-md btn-primary" color="primary" type="submit" [disabled]="orderForm.invalid">Order Now</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="menu_wrapper">
-                    <h6 mat-button (click)="openDialog()">
-                        Momo
-                    </h6>
-                    <p class="quantity">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                        <span>2</span>
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </p>
-                    <p>120</p>
-                    <p>
-                        <b>Rs</b> 240
-                    </p>
-                </div>
-                <div class="menu_wrapper">
-                    <h6 mat-button (click)="openDialog()">
-                        Momo
-                    </h6>
-                    <p class="quantity">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                        <span>2</span>
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </p>
-                    <p>120</p>
-                    <p>
-                        <b>Rs</b> 240
-                    </p>
-                </div>
-                <div class="menu_wrapper">
-                    <h6 mat-button (click)="openDialog()">
-                        Momo
-                    </h6>
-                    <p class="quantity">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                        <span>2</span>
-                        <i class="fa fa-minus" aria-hidden="true"></i>
-                    </p>
-                    <p>120</p>
-                    <p>
-                        <b>Rs</b> 240
-                    </p>
-                </div>
-            </div>
-            <div class="selected_item__body_left_footer">
-                <p>
-                    <span>Total Qtry : </span> 3
-                </p>
-                <p>
-                    <span>Total Price : </span> 300
-                </p>
-                <p>
-                    <span>Discount Price : </span> 50
-                </p>
-                <p>
-                    <span>Net Price : </span> 250
-                </p>
-            </div>
+            </form>
         </div>
         <div class="selected_item__body_right">
             <div class="category_food_wrapper">
@@ -220,10 +245,7 @@
                         </p>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Order Now</button>
-                        <button mat-icon-button>
-                            <!-- <mat-icon>favorite</mat-icon> -->
-                        </button>
+                        <button mat-button >Order Now</button>
                     </mat-card-actions>
                 </mat-card>
             </div>
@@ -238,24 +260,58 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!--Status Modal -->
+<div class="modal fade" id="statusModal" tabindex="-1"
+    aria-labelledby="statusModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-center w-100" id="exampleModalLabel">MoMo</h5>
-                <button type="button" style="outline: none !important;"
-                    class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-secondary"
-                    data-bs-dismiss="modal">Cancel</button>
-            </div>
+            <form [formGroup]="discountForm" (ngSubmit)="onSubmit()">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="statusModalLabel">Add Discount</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close" id="closeModal"></button>
+                </div>
+                <div class="modal-body">
+                    <div mat-dialog-content class="mat_dialog">
+                        <div class="mat_dilog_wrapper">
+                            <div class="mat_dilog_wrapper__left">
+                                <form [formGroup]="discountForm" (ngSubmit)="submitDiscount()">
+                                    <div class="mat_dilog_wrapper__left_discount">
+                                        <mat-form-field>
+                                            <mat-label>Discount in amount</mat-label>
+                                            <input matInput formControlName="discount_amount">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="mat_dilog_wrapper__left_discount">
+                                        <mat-form-field>
+                                            <mat-label>Discount in percent</mat-label>
+                                            <input matInput formControlName="discount_percentage">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="mat_dilog_wrapper__left_discount">
+                                        <button mat-raised-button color="primary" type="submit" [disabled]="discountForm.invalid">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="mat_dilog_wrapper__right">
+                                <div>
+                                    <button mat-icon-button>
+                                        <mat-icon>add</mat-icon>
+                                    </button>
+                    
+                                    <button mat-icon-button>
+                                        <mat-icon>remove</mat-icon>
+                                    </button>
+                                </div>
+                                <div class="button_wrapper">
+                                    <button mat-dialog-close mat-button color="accent" (click)="closeModal()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
