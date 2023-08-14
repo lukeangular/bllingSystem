@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+
+  activeCategory: string = 'appetizers'
+  getMenuByCategory(type: string) {
+    this.activeCategory = type;
+  }
+
 }

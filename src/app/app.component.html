@@ -1,7 +1,6 @@
 <mat-toolbar color="primary" class="navbar">
-    <a mat-button routerLink="/">Menu list</a>
-    <a mat-button routerLink="/category">Category</a>
-    <a mat-button routerLink="/selected-item">Selected items</a>
+    <a mat-button routerLink="/" class="active_menu" [ngClass]="activeCategory=='menulist' ? 'active':'' " (click)="getMenuByCategory('menulist')">Menu list</a>
+    <a mat-button routerLink="/selected-item" class="active_menu" [ngClass]="activeCategory=='selecteditem' ? 'active':'' " (click)="getMenuByCategory('selecteditem')">Selected items</a>
 </mat-toolbar>
 
 <div class="main_container">

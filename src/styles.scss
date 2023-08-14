@@ -9,6 +9,12 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     overflow-x: hidden;
 }
+.menu.active{
+    color: red !important;
+}
+.active_menu.active{
+    text-decoration: underline !important;
+}
 
 .main_container{
     padding-top: 32px;

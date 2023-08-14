@@ -1,3 +1,10 @@
+
+<mat-toolbar class="category_wraper">
+    <a mat-button (click)="getMenuByCategory('appetizers')" class="menu" [ngClass]="activeCategory=='appetizers' ? 'active':'' ">Appetizers</a>
+    <a mat-button (click)="getMenuByCategory('maincourse')" class="menu" [ngClass]="activeCategory=='maincourse' ? 'active':'' ">Main courses</a>
+    <a mat-button (click)="getMenuByCategory('beverage')" class="menu" [ngClass]="activeCategory=='beverage' ? 'active':'' ">Beverages</a>
+</mat-toolbar>
+
 <div class="food_wrapper">
     <mat-card class="food-card">
         <mat-card-content class="image_wrapper">

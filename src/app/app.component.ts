@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'resturantBilling';
+
+  activeCategory: string = 'menulist'
+  getMenuByCategory(type: string) {
+    this.activeCategory = type;
+  }
 }
