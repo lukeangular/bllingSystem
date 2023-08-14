@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class SelectedItemComponent {
 
+
+  activeCategory: string = 'all'
+  getMenuByCategory(type: string) {
+    this.activeCategory = type;
+  }
 }

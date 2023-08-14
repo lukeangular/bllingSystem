@@ -43,7 +43,120 @@ body {
         color: #777777 !important;
     }
 }
+.category_wraper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 16px;
+    row-gap: 16px;
+}
+.food_wrapper{
+    margin-top: 24px;
+}
+.category_food_wrapper{
+    padding: 10px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+    row-gap: 24px;
+    .image_wrapper{
+        position: relative;
+        max-height: 100px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    span.discount_price{
+        margin-left: 10px;
+        text-decoration: line-through;
+        font-style: italic;
+        color: #777777 !important;
+    }
+}
+
 .pagination_wrapper{
     padding: 16px;
     padding-bottom: 16px;
+}
+
+
+.selected_item{
+    .selected_item__header{
+        height: 70px;
+        display: grid;
+        grid-template-columns: 1.3fr 1.7fr;
+        border: 1px solid #e0e0e0;
+
+        .selected_item__header_left{
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .selected_item__header_right{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            .menu_wrapper{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-right: 1px solid #e0e0e0;
+
+                h6{
+                    cursor: pointer;
+                }
+            }
+            .menu_wrapper:last-child{
+                border-right: none !important;
+            }
+        }
+    }
+    .selected_item__body{
+        // background-color: red !important;
+        display: grid;
+        grid-template-columns: 1.3fr 1.7fr;
+        border: 1px solid #e0e0e0;
+        border-top: none !important;
+        height: auto;
+        min-height: 500px;
+
+
+
+        .selected_item__body_left{
+            border-right:  1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .selected_item__body_left_wrapper{
+                .menu_wrapper{
+                    margin-top: 15px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    border: 1px solid #e0e0e0;
+                    height: auto;
+                    min-height: 50px;
+                    border-left: 0px !important;
+                    border-right: 0px !important;
+    
+                    h6, p{
+                        padding: 0px !important;
+                        margin: 0px !important;
+                    }
+                }
+            }
+            .selected_item__body_left_footer{
+                padding: 15px;
+                height: auto;
+                min-height: 100px;
+                border-top: 1px solid #e0e0e0;
+            }
+        }
+        .selected_item__body_right{
+        }
+    }
 }

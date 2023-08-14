@@ -1,1 +1,198 @@
-<p>selected-item works!</p>
+<div class="selected_item">
+    <div class="selected_item__header">
+        <div class="selected_item__header_left">
+            <h4>Menu List</h4>
+        </div>
+        <div class="selected_item__header_right">
+            <div class="menu_wrapper">
+                <h6 (click)="getMenuByCategory('all')" class="menu" [ngClass]="activeCategory=='all' ? 'active':'' ">All</h6>
+            </div>
+            <div class="menu_wrapper">
+                <h6 (click)="getMenuByCategory('appetizers')" class="menu" [ngClass]="activeCategory=='appetizers' ? 'active':'' ">appertisers</h6>
+            </div>
+            <div class="menu_wrapper">
+                <h6 (click)="getMenuByCategory('maincourse')" class="menu" [ngClass]="activeCategory=='maincourse' ? 'active':'' ">main courses</h6>
+            </div>
+            <div class="menu_wrapper">
+                <h6 (click)="getMenuByCategory('beverage')" class="menu" [ngClass]="activeCategory=='beverage' ? 'active':'' ">beverages</h6>
+            </div>
+        </div>
+    </div>
+    <div class="selected_item__body">
+        <div class="selected_item__body_left">
+            <div class="selected_item__body_left_wrapper">
+                <div class="menu_wrapper">
+                    <h6>Momo</h6>
+                    <p>2</p>
+                    <p>120</p>
+                    <p>
+                        <b>Rs</b> 240
+                    </p>
+                </div>
+                <div class="menu_wrapper">
+                    <h6>Momo</h6>
+                    <p>2</p>
+                    <p>120</p>
+                    <p>
+                        <b>Rs</b> 240
+                    </p>
+                </div>
+                <div class="menu_wrapper">
+                    <h6>Momo</h6>
+                    <p>2</p>
+                    <p>120</p>
+                    <p>
+                        <b>Rs</b> 240
+                    </p>
+                </div>
+                <div class="menu_wrapper">
+                    <h6>Momo</h6>
+                    <p>2</p>
+                    <p>120</p>
+                    <p>
+                        <b>Rs</b> 240
+                    </p>
+                </div>
+            </div>
+            <div class="selected_item__body_left_footer">
+                <p>
+                    <span>Total Qtry : </span> 3
+                </p>
+                <p>
+                    <span>Total Price : </span> 300
+                </p>
+                <p>
+                    <span>Discount Price : </span> 50
+                </p>
+                <p>
+                    <span>Net Price : </span> 250
+                </p>
+            </div>
+        </div>
+        <div class="selected_item__body_right">
+            <div class="category_food_wrapper">
+                <mat-card class="food-card">
+                    <mat-card-content class="image_wrapper">
+                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                    </mat-card-content>
+                    <mat-card-content>
+                        <h3 mat-card-title>Delicious Food Item</h3>
+                        <p mat-card-subtitle>Category</p>
+                        <p mat-card-text>
+                            <span>Rs. 300</span>
+                            <span class="discount_price">Rs 250</span>
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>Order Now</button>
+                        <button mat-icon-button>
+                            <!-- <mat-icon>favorite</mat-icon> -->
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card class="food-card">
+                    <mat-card-content class="image_wrapper">
+                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                    </mat-card-content>
+                    <mat-card-content>
+                        <h3 mat-card-title>Delicious Food Item</h3>
+                        <p mat-card-subtitle>Category</p>
+                        <p mat-card-text>
+                            <span>Rs. 300</span>
+                            <span class="discount_price">Rs 250</span>
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>Order Now</button>
+                        <button mat-icon-button>
+                            <!-- <mat-icon>favorite</mat-icon> -->
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card class="food-card">
+                    <mat-card-content class="image_wrapper">
+                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                    </mat-card-content>
+                    <mat-card-content>
+                        <h3 mat-card-title>Delicious Food Item</h3>
+                        <p mat-card-subtitle>Category</p>
+                        <p mat-card-text>
+                            <span>Rs. 300</span>
+                            <span class="discount_price">Rs 250</span>
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>Order Now</button>
+                        <button mat-icon-button>
+                            <!-- <mat-icon>favorite</mat-icon> -->
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card class="food-card">
+                    <mat-card-content class="image_wrapper">
+                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                    </mat-card-content>
+                    <mat-card-content>
+                        <h3 mat-card-title>Delicious Food Item</h3>
+                        <p mat-card-subtitle>Category</p>
+                        <p mat-card-text>
+                            <span>Rs. 300</span>
+                            <span class="discount_price">Rs 250</span>
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>Order Now</button>
+                        <button mat-icon-button>
+                            <!-- <mat-icon>favorite</mat-icon> -->
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card class="food-card">
+                    <mat-card-content class="image_wrapper">
+                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                    </mat-card-content>
+                    <mat-card-content>
+                        <h3 mat-card-title>Delicious Food Item</h3>
+                        <p mat-card-subtitle>Category</p>
+                        <p mat-card-text>
+                            <span>Rs. 300</span>
+                            <span class="discount_price">Rs 250</span>
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>Order Now</button>
+                        <button mat-icon-button>
+                            <!-- <mat-icon>favorite</mat-icon> -->
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+                <mat-card class="food-card">
+                    <mat-card-content class="image_wrapper">
+                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                    </mat-card-content>
+                    <mat-card-content>
+                        <h3 mat-card-title>Delicious Food Item</h3>
+                        <p mat-card-subtitle>Category</p>
+                        <p mat-card-text>
+                            <span>Rs. 300</span>
+                            <span class="discount_price">Rs 250</span>
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>Order Now</button>
+                        <button mat-icon-button>
+                            <!-- <mat-icon>favorite</mat-icon> -->
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+            <div class="pagination_wrapper">
+                <mat-paginator [length]="100"
+                    [pageSize]="10"
+                    [pageSizeOptions]="[5, 10, 25, 50, 100]"
+                    aria-label="Select page">
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
