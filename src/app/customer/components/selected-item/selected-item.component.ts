@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-selected-item',
@@ -12,4 +14,11 @@ export class SelectedItemComponent {
   getMenuByCategory(type: string) {
     this.activeCategory = type;
   }
+
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    this.dialog.open(ModalComponent);
+  }
+  
 }

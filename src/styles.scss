@@ -22,6 +22,9 @@ body {
     width: 80%;
     margin: 0 auto;
 }
+.btn-close{
+    outline: none !important;
+}
 
 .food_wrapper{
     display: grid;
@@ -157,6 +160,44 @@ body {
             }
         }
         .selected_item__body_right{
+        }
+    }
+}
+
+
+// material dialog
+.mat_dialog {
+    .mat_dilog_wrapper {
+        min-width: 320px;
+        display: grid;
+        grid-template-columns: 1.5fr 1.5fr;
+
+        .mat_dilog_wrapper__left {
+            height: 200px;
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+
+            .mat_dilog_wrapper__left_discount {
+                min-height: 50px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+        .mat_dilog_wrapper__right {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .mat_dilog_wrapper__right{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .button_wrapper {
+            margin-top: auto; 
+            display: flex;
+            justify-content: center;
         }
     }
 }

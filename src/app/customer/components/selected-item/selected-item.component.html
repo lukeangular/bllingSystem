@@ -5,16 +5,21 @@
         </div>
         <div class="selected_item__header_right">
             <div class="menu_wrapper">
-                <h6 (click)="getMenuByCategory('all')" class="menu" [ngClass]="activeCategory=='all' ? 'active':'' ">All</h6>
+                <h6 (click)="getMenuByCategory('all')" class="menu"
+                    [ngClass]="activeCategory=='all' ? 'active':'' ">All</h6>
             </div>
             <div class="menu_wrapper">
-                <h6 (click)="getMenuByCategory('appetizers')" class="menu" [ngClass]="activeCategory=='appetizers' ? 'active':'' ">appertisers</h6>
+                <h6 (click)="getMenuByCategory('appetizers')" class="menu"
+                    [ngClass]="activeCategory=='appetizers' ? 'active':'' ">appertisers</h6>
             </div>
             <div class="menu_wrapper">
-                <h6 (click)="getMenuByCategory('maincourse')" class="menu" [ngClass]="activeCategory=='maincourse' ? 'active':'' ">main courses</h6>
+                <h6 (click)="getMenuByCategory('maincourse')" class="menu"
+                    [ngClass]="activeCategory=='maincourse' ? 'active':'' ">main
+                    courses</h6>
             </div>
             <div class="menu_wrapper">
-                <h6 (click)="getMenuByCategory('beverage')" class="menu" [ngClass]="activeCategory=='beverage' ? 'active':'' ">beverages</h6>
+                <h6 (click)="getMenuByCategory('beverage')" class="menu"
+                    [ngClass]="activeCategory=='beverage' ? 'active':'' ">beverages</h6>
             </div>
         </div>
     </div>
@@ -22,32 +27,56 @@
         <div class="selected_item__body_left">
             <div class="selected_item__body_left_wrapper">
                 <div class="menu_wrapper">
-                    <h6>Momo</h6>
-                    <p>2</p>
+                    <h6 mat-button (click)="openDialog()">
+                        Momo
+                    </h6>
+                    <p class="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <span>2</span>
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </p>
                     <p>120</p>
                     <p>
                         <b>Rs</b> 240
                     </p>
                 </div>
                 <div class="menu_wrapper">
-                    <h6>Momo</h6>
-                    <p>2</p>
+                    <h6 mat-button (click)="openDialog()">
+                        Momo
+                    </h6>
+                    <p class="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <span>2</span>
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </p>
                     <p>120</p>
                     <p>
                         <b>Rs</b> 240
                     </p>
                 </div>
                 <div class="menu_wrapper">
-                    <h6>Momo</h6>
-                    <p>2</p>
+                    <h6 mat-button (click)="openDialog()">
+                        Momo
+                    </h6>
+                    <p class="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <span>2</span>
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </p>
                     <p>120</p>
                     <p>
                         <b>Rs</b> 240
                     </p>
                 </div>
                 <div class="menu_wrapper">
-                    <h6>Momo</h6>
-                    <p>2</p>
+                    <h6 mat-button (click)="openDialog()">
+                        Momo
+                    </h6>
+                    <p class="quantity">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <span>2</span>
+                        <i class="fa fa-minus" aria-hidden="true"></i>
+                    </p>
                     <p>120</p>
                     <p>
                         <b>Rs</b> 240
@@ -73,7 +102,9 @@
             <div class="category_food_wrapper">
                 <mat-card class="food-card">
                     <mat-card-content class="image_wrapper">
-                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                        <img mat-card-image
+                            src="../../../../assets/img/tibetan-singing-bowl-shiva1.png"
+                            alt="Food Item">
                     </mat-card-content>
                     <mat-card-content>
                         <h3 mat-card-title>Delicious Food Item</h3>
@@ -92,7 +123,9 @@
                 </mat-card>
                 <mat-card class="food-card">
                     <mat-card-content class="image_wrapper">
-                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                        <img mat-card-image
+                            src="../../../../assets/img/tibetan-singing-bowl-shiva1.png"
+                            alt="Food Item">
                     </mat-card-content>
                     <mat-card-content>
                         <h3 mat-card-title>Delicious Food Item</h3>
@@ -111,7 +144,9 @@
                 </mat-card>
                 <mat-card class="food-card">
                     <mat-card-content class="image_wrapper">
-                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                        <img mat-card-image
+                            src="../../../../assets/img/tibetan-singing-bowl-shiva1.png"
+                            alt="Food Item">
                     </mat-card-content>
                     <mat-card-content>
                         <h3 mat-card-title>Delicious Food Item</h3>
@@ -130,7 +165,9 @@
                 </mat-card>
                 <mat-card class="food-card">
                     <mat-card-content class="image_wrapper">
-                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                        <img mat-card-image
+                            src="../../../../assets/img/tibetan-singing-bowl-shiva1.png"
+                            alt="Food Item">
                     </mat-card-content>
                     <mat-card-content>
                         <h3 mat-card-title>Delicious Food Item</h3>
@@ -149,7 +186,9 @@
                 </mat-card>
                 <mat-card class="food-card">
                     <mat-card-content class="image_wrapper">
-                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                        <img mat-card-image
+                            src="../../../../assets/img/tibetan-singing-bowl-shiva1.png"
+                            alt="Food Item">
                     </mat-card-content>
                     <mat-card-content>
                         <h3 mat-card-title>Delicious Food Item</h3>
@@ -168,7 +207,9 @@
                 </mat-card>
                 <mat-card class="food-card">
                     <mat-card-content class="image_wrapper">
-                        <img mat-card-image src="../../../../assets/img/tibetan-singing-bowl-shiva1.png" alt="Food Item">
+                        <img mat-card-image
+                            src="../../../../assets/img/tibetan-singing-bowl-shiva1.png"
+                            alt="Food Item">
                     </mat-card-content>
                     <mat-card-content>
                         <h3 mat-card-title>Delicious Food Item</h3>
@@ -192,6 +233,28 @@
                     [pageSizeOptions]="[5, 10, 25, 50, 100]"
                     aria-label="Select page">
                 </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center w-100" id="exampleModalLabel">MoMo</h5>
+                <button type="button" style="outline: none !important;"
+                    class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>

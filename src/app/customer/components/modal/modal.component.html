@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>MoMo</h1>
+<div mat-dialog-content class="mat_dialog">
+    <div class="mat_dilog_wrapper">
+        <div class="mat_dilog_wrapper__left">
+            <form>
+                <div class="mat_dilog_wrapper__left_discount">
+                    <mat-form-field>
+                        <mat-label>Discount in amount</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="mat_dilog_wrapper__left_discount">
+                    <mat-form-field>
+                        <mat-label>Discount in percent</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div class="mat_dilog_wrapper__left_discount">
+                    <button mat-raised-button color="primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+        <div class="mat_dilog_wrapper__right">
+            <div>
+                <button mat-icon-button>
+                    <mat-icon>add</mat-icon>
+                </button>
+
+                <button mat-icon-button>
+                    <mat-icon>remove</mat-icon>
+                </button>
+            </div>
+            <div class="button_wrapper">
+                <button mat-dialog-close mat-button color="accent">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

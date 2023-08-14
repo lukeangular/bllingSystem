@@ -1,0 +1,14 @@
+h6{
+    cursor: pointer !important;
+}
+p.quantity{
+    display: flex;
+    column-gap: 15px !important;
+
+    i{
+        cursor: pointer !important;
+        display: flex;
+        align-items: center;
+        color: #777777 !important;
+    }
+}
