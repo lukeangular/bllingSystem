@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
@@ -17,7 +16,6 @@ export class SelectedItemComponent implements OnInit {
   }
 
   constructor(
-    public dialog: MatDialog,
     private _fb: FormBuilder
   ) { }
 
@@ -25,9 +23,6 @@ export class SelectedItemComponent implements OnInit {
     this.buildOrderFormBuilder();
   }
 
-  openDialog() {
-    this.dialog.open(ModalComponent);
-  }
 
   // login form builder
   orderForm: FormGroup;

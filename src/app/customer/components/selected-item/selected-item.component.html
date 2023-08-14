@@ -276,23 +276,21 @@
                     <div mat-dialog-content class="mat_dialog">
                         <div class="mat_dilog_wrapper">
                             <div class="mat_dilog_wrapper__left">
-                                <form [formGroup]="discountForm" (ngSubmit)="submitDiscount()">
-                                    <div class="mat_dilog_wrapper__left_discount">
-                                        <mat-form-field>
-                                            <mat-label>Discount in amount</mat-label>
-                                            <input matInput formControlName="discount_amount">
-                                        </mat-form-field>
-                                    </div>
-                                    <div class="mat_dilog_wrapper__left_discount">
-                                        <mat-form-field>
-                                            <mat-label>Discount in percent</mat-label>
-                                            <input matInput formControlName="discount_percentage">
-                                        </mat-form-field>
-                                    </div>
-                                    <div class="mat_dilog_wrapper__left_discount">
-                                        <button mat-raised-button color="primary" type="submit" [disabled]="discountForm.invalid">Save</button>
-                                    </div>
-                                </form>
+                                <div class="mat_dilog_wrapper__left_discount">
+                                    <mat-form-field>
+                                        <mat-label>Discount in amount</mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </div>
+                                <div class="mat_dilog_wrapper__left_discount">
+                                    <mat-form-field>
+                                        <mat-label>Discount in percent</mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </div>
+                                <div class="mat_dilog_wrapper__left_discount">
+                                    <button mat-raised-button color="primary" type="submit" >Save</button>
+                                </div>
                             </div>
                             <div class="mat_dilog_wrapper__right">
                                 <div>
