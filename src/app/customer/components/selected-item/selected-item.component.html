@@ -125,106 +125,29 @@
         </div>
         <div class="selected_item__body_right">
             <div class="category_food_wrapper">
-                <mat-card class="food-card">
-                    <mat-card-content>
-                        <h3 mat-card-title>Delicious Food Item</h3>
-                        <p mat-card-subtitle>Category</p>
-                        <p mat-card-text>
-                            <span>Rs. 300</span>
-                            <span class="discount_price">Rs 250</span>
-                        </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button>Order Now</button>
-                        <button mat-icon-button>
-                            <!-- <mat-icon>favorite</mat-icon> -->
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
-                <mat-card class="food-card">
-                    <mat-card-content>
-                        <h3 mat-card-title>Delicious Food Item</h3>
-                        <p mat-card-subtitle>Category</p>
-                        <p mat-card-text>
-                            <span>Rs. 300</span>
-                            <span class="discount_price">Rs 250</span>
-                        </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button>Order Now</button>
-                        <button mat-icon-button>
-                            <!-- <mat-icon>favorite</mat-icon> -->
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
-                <mat-card class="food-card">
-                    <mat-card-content>
-                        <h3 mat-card-title>Delicious Food Item</h3>
-                        <p mat-card-subtitle>Category</p>
-                        <p mat-card-text>
-                            <span>Rs. 300</span>
-                            <span class="discount_price">Rs 250</span>
-                        </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button>Order Now</button>
-                        <button mat-icon-button>
-                            <!-- <mat-icon>favorite</mat-icon> -->
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
-                <mat-card class="food-card">
-                    <mat-card-content>
-                        <h3 mat-card-title>Delicious Food Item</h3>
-                        <p mat-card-subtitle>Category</p>
-                        <p mat-card-text>
-                            <span>Rs. 300</span>
-                            <span class="discount_price">Rs 250</span>
-                        </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button>Order Now</button>
-                        <button mat-icon-button>
-                            <!-- <mat-icon>favorite</mat-icon> -->
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
-                <mat-card class="food-card">
-                    <mat-card-content>
-                        <h3 mat-card-title>Delicious Food Item</h3>
-                        <p mat-card-subtitle>Category</p>
-                        <p mat-card-text>
-                            <span>Rs. 300</span>
-                            <span class="discount_price">Rs 250</span>
-                        </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button>Order Now</button>
-                        <button mat-icon-button>
-                            <!-- <mat-icon>favorite</mat-icon> -->
-                        </button>
-                    </mat-card-actions>
-                </mat-card>
-                <mat-card class="food-card">
-                    <mat-card-content>
-                        <h3 mat-card-title>Delicious Food Item</h3>
-                        <p mat-card-subtitle>Category</p>
-                        <p mat-card-text>
-                            <span>Rs. 300</span>
-                            <span class="discount_price">Rs 250</span>
-                        </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button >Order Now</button>
-                    </mat-card-actions>
-                </mat-card>
+                <ng-container *ngIf="foodList && foodList.length>0; else elseBlock">
+                    <mat-card class="food-card" *ngFor="let data of foodList | paginate: { itemsPerPage: limit, currentPage: curentPage,  totalItems: total }">
+                        <mat-card-content>
+                            <h3 mat-card-title>{{data?.name}}</h3>
+                            <p mat-card-subtitle>{{data?.category}}</p>
+                            <p mat-card-text>
+                                <span>Rs. {{data?.price}}</span>
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button mat-button>Order Now</button>
+                            <button mat-icon-button>
+                            </button>
+                        </mat-card-actions>
+                    </mat-card>
+                </ng-container>
+                <ng-template #elseBlock>
+                    <p *ngIf="!isFoodDataLoading">No Data Available</p>
+                    <p *ngIf="isFoodDataLoading">Loading...</p>
+                </ng-template>
             </div>
             <div class="pagination_wrapper">
-                <mat-paginator [length]="100"
-                    [pageSize]="10"
-                    [pageSizeOptions]="[5, 10, 25, 50, 100]"
-                    aria-label="Select page">
-                </mat-paginator>
+                <pagination-controls previousLabel=""  nextLabel="" class="news_pagination_content" (pageChange)="onPageChange($event)" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"></pagination-controls>
             </div>
         </div>
     </div>

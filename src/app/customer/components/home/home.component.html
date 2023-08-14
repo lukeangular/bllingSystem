@@ -1,6 +1,6 @@
 <div class="food_wrapper">
     <ng-container *ngIf="foodList && foodList.length>0; else elseBlock">
-        <mat-card class="food-card" *ngFor="let data of foodList | paginate: { itemsPerPage: item, currentPage: p,  totalItems: total }">
+        <mat-card class="food-card" *ngFor="let data of foodList | paginate: { itemsPerPage: limit, currentPage: curentPage,  totalItems: total }">
             <mat-card-content>
                 <h3 mat-card-title>{{data?.name}}</h3>
                 <p mat-card-subtitle>{{data?.category}}</p>
@@ -21,10 +21,5 @@
     </ng-template>
 </div>
 <div class="pagination_wrapper">
-    <!-- <mat-paginator [length]="foodList.length"
-        [pageSize]="pageSize"
-        [pageSizeOptions]="pageSizeOptions"
-        (page)="onPageChange($event)">
-    </mat-paginator> -->
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls previousLabel=""  nextLabel="" class="news_pagination_content" (pageChange)="onPageChange($event)" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"></pagination-controls>
 </div>

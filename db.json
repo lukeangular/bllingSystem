@@ -184,7 +184,7 @@
   "order": [
     {
       "id": 1,
-      "customer_name": "some comment",
+      "customer_name": "Sundar Tamang",
       "phone": 9813210393,
       "address": "Balaju, Kathamanud",
       "item": "momo",
@@ -192,8 +192,5 @@
       "discounted_price": 50,
       "net_prce": 300
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

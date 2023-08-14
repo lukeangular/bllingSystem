@@ -19,18 +19,30 @@ export class HomeComponent implements OnInit {
 
   // food list
   foodList: any = [];
-  p: number = 1;
-  item: number = 16;
+  curentPage: number = 1;
+  limit: number = 16;
   total: any;
 
   isFoodDataLoading: boolean = false;
   getFoodList() {
     this.isFoodDataLoading = true;
-    this._foodService.getFood().subscribe((res) => {
-      this.foodList = res
+    let getBody = {
+      currentpage : this.curentPage,
+      _limit : this.limit
+    }
+    this._foodService.getFood(getBody).subscribe((response) => {
+      this.foodList = response.data
+      this.total = response.count
       this.isFoodDataLoading = false;
+      console.warn("RESPSE IS => ", response)
     }, err => {
       this.isFoodDataLoading = false
     })
   }
+
+  onPageChange(event:any) {
+    this.curentPage = event;
+    this.getFoodList();
+  }
+
 }

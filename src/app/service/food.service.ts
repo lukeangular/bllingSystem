@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export interface Food {
   name: string;
@@ -18,10 +20,21 @@ export class FoodService {
 
 
   //add food
-  getFood() {
-    let url = 'http://localhost:3000/foods'
-    return this._http.get(url)
+  getFood(body:any) {
+    let url = `http://localhost:3000/foods?_page=${body.currentpage}&_limit=${body._limit}`
+    let url_count = 'http://localhost:3000/foods?_size'
+    // return this._http.get(url)
+    return forkJoin([
+      this._http.get(url),
+      this._http.get(url_count)
+    ]).pipe(
+      map(([data, count]) => ({
+        data,
+        count: Object.keys(count).length
+      }))
+    );
   }
+  
 
   //add food
   addFood(body: Food) {
