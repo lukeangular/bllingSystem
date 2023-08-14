@@ -1,0 +1,19 @@
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="mb-2">
+        <label for="nameInput" class="form-label">Food name</label>
+        <input type="text" class="form-control" id="nameInput" formControlName="name">
+    </div>
+    <div class="mb-2">
+        <label for="priceInput" class="form-label">Food price</label>
+        <input type="text" class="form-control" id="priceInput" formControlName="price">
+    </div>
+    <div class="mb-2">
+        <select class="form-select" aria-label="Default select example" formControlName="category">
+            <option selected>Select Category</option>
+            <option value="appetizers">Appetizers</option>
+            <option value="maincourse">Main course</option>
+            <option value="beverage">Beverage</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Submit</button>
+</form>

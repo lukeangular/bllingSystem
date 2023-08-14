@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {MatDialog} from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 
 @Component({
@@ -11,10 +13,16 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
+    public dialog: MatDialog
   ) { }
+  
 
   ngOnInit(): void {
     this.buildOrderFormBuilder();
+  }
+
+  openDialog() {
+    this.dialog.open(ModalComponent);
   }
 
   // login form builder

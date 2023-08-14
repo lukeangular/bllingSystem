@@ -16,6 +16,13 @@ body {
     text-decoration: underline !important;
 }
 
+.pagination_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+}
+
 .main_container{
     padding-top: 32px;
     padding-bottom: 32px;

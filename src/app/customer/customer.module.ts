@@ -10,6 +10,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { HomeComponent } from './components/home/home.component';
@@ -37,7 +38,8 @@ import { ModalComponent } from './components/modal/modal.component';
     MatButtonModule,
     NgIf,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    NgxPaginationModule
   ]
 })
 export class CustomerModule { }
