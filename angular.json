@@ -34,7 +34,9 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -105,6 +107,9 @@
     }
   },
   "cli": {
-    "analytics": "b7888a74-c2cb-4036-aa44-116f92e93fc0"
+    "analytics": "b7888a74-c2cb-4036-aa44-116f92e93fc0",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }

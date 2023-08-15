@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit {
   getFoodList() {
     this.isFoodDataLoading = true;
     let getBody = {
-      currentpage : this.curentPage,
-      _limit : this.limit
+      currentpage: this.curentPage,
+      _limit: this.limit
     }
     this._foodService.getFood(getBody).subscribe((response) => {
       this.foodList = response.data
@@ -39,9 +39,15 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  onPageChange(event:any) {
+  onPageChange(event: any) {
     this.curentPage = event;
     this.getFoodList();
+  }
+
+
+  // add to card 
+  addToCard(data:any) {
+    console.warn("Add to card ", data)
   }
 
 }
