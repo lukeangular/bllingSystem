@@ -14,13 +14,12 @@ export class AppComponent implements OnInit {
     private _router: Router
   ) { }
 
+
   currentUrl: string = ''
   isAdmin: boolean = false;
   ngOnInit(): void {
     this._router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        console.warn('url:', event.url);
-
         switch (event.url) {
           case '/selected-item':
             this.currentUrl = event.url
@@ -41,7 +40,7 @@ export class AppComponent implements OnInit {
   }
 
 
-
+  // get menu type when user click at menu
   activeCategory: string = 'menulist'
   getMenuByCategory(type: string) {
     this.activeCategory = type;

@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit {
       this.foodList = response.data
       this.total = response.count
       this.isFoodDataLoading = false;
-      console.warn("RESPSE IS => ", response)
     }, err => {
       this.isFoodDataLoading = false
     })

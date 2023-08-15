@@ -15,20 +15,22 @@ export class SelectedItemComponent implements OnInit {
     private _foodService: FoodService
   ) { }
 
+
   ngOnInit(): void {
     this.buildOrderFormBuilder();
     this.getFoodList();
     this.buildDiscountFormBuilder();
   }
 
+
   // get menu by category
   activeCategory: string = 'all'
   getMenuByCategory(type: string) {
     this.activeCategory = type;
 
-    if(this.activeCategory=='all'){
+    if (this.activeCategory == 'all') {
       this.getFoodList();
-    }else{
+    } else {
       this.curentPage = 1;
       this.getCategoryItem(this.activeCategory)
     }
@@ -45,32 +47,26 @@ export class SelectedItemComponent implements OnInit {
     });
   }
 
+
   // discount form
   discountForm: FormGroup;
   buildDiscountFormBuilder() {
-    this.orderForm = this._fb.group({
+    this.discountForm = this._fb.group({
       discount_amount: ["",],
       discount_percentage: ["",],
     });
   }
 
 
+  // submit order
   onSubmit() {
 
   }
 
+
   // submit discount
   submitDiscount() {
 
-  }
-
-
-  // close modal
-  closeModal() {
-    const modal = document.getElementById('closeModal');
-    if (modal) {
-      modal.click();
-    }
   }
 
 
@@ -103,23 +99,32 @@ export class SelectedItemComponent implements OnInit {
 
 
   // get by category
-  getCategoryItem(type?:String){
+  getCategoryItem(type?: String) {
     let getBody = {
       category: type,
     }
     this.isFoodDataLoading = true;
-    this._foodService.getByCategory(getBody).subscribe((res)=>{
+    this._foodService.getByCategory(getBody).subscribe((res) => {
       this.foodList = res.data
       this.total = res.count
       this.isFoodDataLoading = false;
-    }, err=>{
+    }, err => {
       this.isFoodDataLoading = false;
     })
   }
-
 
   onPageChangeCategory(event: any) {
     this.curentPage = event;
     this.getCategoryItem(this.activeCategory);
   }
+
+
+  // close modal
+  closeModal() {
+    const modal = document.getElementById('closeModal');
+    if (modal) {
+      modal.click();
+    }
+  }
+
 }
