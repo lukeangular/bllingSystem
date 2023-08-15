@@ -41,4 +41,18 @@ export class FoodService {
     let url = 'http://localhost:3000/foods'
     return this._http.post<Food>(url, body)
   }
+
+
+  // get by category
+  getByCategory(body:any){
+    let url = `http://localhost:3000/foods?category=${body.category}`
+    return forkJoin([
+      this._http.get(url)
+    ]).pipe(
+      map(([data]) => ({
+        data,
+        count: Object.keys(data).length
+      }))
+    );
+  }
 }

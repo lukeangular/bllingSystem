@@ -10,14 +10,6 @@ import { FoodService } from 'src/app/service/food.service';
 })
 export class SelectedItemComponent implements OnInit {
 
-
-  activeCategory: string = 'all'
-  getMenuByCategory(type: string) {
-    this.activeCategory = type;
-
-
-  }
-
   constructor(
     private _fb: FormBuilder,
     private _foodService: FoodService
@@ -26,6 +18,20 @@ export class SelectedItemComponent implements OnInit {
   ngOnInit(): void {
     this.buildOrderFormBuilder();
     this.getFoodList();
+    this.buildDiscountFormBuilder();
+  }
+
+  // get menu by category
+  activeCategory: string = 'all'
+  getMenuByCategory(type: string) {
+    this.activeCategory = type;
+
+    if(this.activeCategory=='all'){
+      this.getFoodList();
+    }else{
+      this.curentPage = 1;
+      this.getCategoryItem(this.activeCategory)
+    }
   }
 
 
@@ -76,16 +82,15 @@ export class SelectedItemComponent implements OnInit {
   isFoodDataLoading: boolean = false;
 
   getFoodList() {
-    this.isFoodDataLoading = true;
     let getBody = {
       currentpage: this.curentPage,
       _limit: this.limit
     }
-    this._foodService.getFood(getBody).subscribe((response) => {
-      this.foodList = response.data
-      this.total = response.count
+    this.isFoodDataLoading = true;
+    this._foodService.getFood(getBody).subscribe((res) => {
+      this.foodList = res.data
+      this.total = res.count
       this.isFoodDataLoading = false;
-      console.warn("RESPSE IS => ", response)
     }, err => {
       this.isFoodDataLoading = false
     })
@@ -94,5 +99,27 @@ export class SelectedItemComponent implements OnInit {
   onPageChange(event: any) {
     this.curentPage = event;
     this.getFoodList();
+  }
+
+
+  // get by category
+  getCategoryItem(type?:String){
+    let getBody = {
+      category: type,
+    }
+    this.isFoodDataLoading = true;
+    this._foodService.getByCategory(getBody).subscribe((res)=>{
+      this.foodList = res.data
+      this.total = res.count
+      this.isFoodDataLoading = false;
+    }, err=>{
+      this.isFoodDataLoading = false;
+    })
+  }
+
+
+  onPageChangeCategory(event: any) {
+    this.curentPage = event;
+    this.getCategoryItem(this.activeCategory);
   }
 }

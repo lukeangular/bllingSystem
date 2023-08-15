@@ -147,7 +147,12 @@
                 </ng-template>
             </div>
             <div class="pagination_wrapper">
-                <pagination-controls previousLabel=""  nextLabel="" class="news_pagination_content" (pageChange)="onPageChange($event)" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"></pagination-controls>
+                <ng-container *ngIf="activeCategory=='all', else elseCategoryBlock">
+                    <pagination-controls previousLabel=""  nextLabel="" class="news_pagination_content" (pageChange)="onPageChange($event)" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"></pagination-controls>
+                </ng-container>
+                <ng-template #elseCategoryBlock>
+                    <pagination-controls previousLabel=""  nextLabel="" class="news_pagination_content" (pageChange)="onPageChangeCategory($event)" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page" screenReaderCurrentLabel="You're on page"></pagination-controls>
+                </ng-template>
             </div>
         </div>
     </div>
