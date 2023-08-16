@@ -21,7 +21,8 @@ export class FoodService {
 
   //add food
   getFood(body:any) {
-    let url = `http://localhost:3000/foods?_page=${body.currentpage}&_limit=${body._limit}`
+    console.warn("what i am getting here ", body)
+    let url = `http://localhost:3000/foods?_page=${body.data.currentpage}&_limit=${body.data._limit}`
     let url_count = 'http://localhost:3000/foods?_size'
     // return this._http.get(url)
     return forkJoin([

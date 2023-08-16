@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodService } from 'src/app/service/food.service';
-import { Store } from '@ngrx/store';
-import { getFoodList, addFood } from 'src/app/store/foods.action';
+import { Store, select  } from '@ngrx/store';
+import { GET_FOOD_LIST, ADD_FOOD } from 'src/app/store/foods.action';
+import { selectFoodList } from 'src/app/store/foods.selector';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,18 @@ import { getFoodList, addFood } from 'src/app/store/foods.action';
 })
 export class HomeComponent implements OnInit {
 
+  foodsList$ = this._store.select(selectFoodList);
+  
   constructor(
     private _foodService: FoodService,
     private _store: Store
   ) { }
-
   ngOnInit(): void {
-    this.getFoodList();
+    this.getFoodListData();
+
+    this.foodsList$.subscribe(foods => {
+      console.log('foodsList$ emitted:', foods);
+    });
   }
 
   // food list
@@ -26,34 +32,26 @@ export class HomeComponent implements OnInit {
   total: any;
 
   isFoodDataLoading: boolean = false;
-  getFoodList() {
-    // this.isFoodDataLoading = true;
+  getFoodListData() {
+    this.isFoodDataLoading = true;
     let getBody = {
       currentpage: this.curentPage,
       _limit: this.limit
     }
     // dispatch method 
-    this._store.dispatch(getFoodList(getBody))
-
-    this._foodService.getFood(getBody).subscribe((response) => {
-      this.foodList = response.data
-      this.total = response.count
-      this.isFoodDataLoading = false;
-    }, err => {
-      this.isFoodDataLoading = false
-    })
+    this._store.dispatch(GET_FOOD_LIST({ data: getBody }))
+    this.isFoodDataLoading = false;
   }
 
   onPageChange(event: any) {
     this.curentPage = event;
-    this.getFoodList();
+    this.getFoodListData();
   }
 
 
   // add to card 
   addToCard(data:any) {
-    console.warn("Add to card ", data)
-    this._store.dispatch(addFood(data))
+    this._store.dispatch(ADD_FOOD(data))
   }
 
 }

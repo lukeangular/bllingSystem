@@ -1,18 +1,18 @@
 import { createAction, props } from "@ngrx/store";
 
-export const getFoodList = createAction(
+export const GET_FOOD_LIST  = createAction(
     '[Food] get food list',
-    (data : any )=> data
+    props<{ data: any }>()
 )
-export const getFoodListSuccess = createAction(
+export const GET_FOOD_LIST_SUCCESS  = createAction(
     '[Food] get food list success',
-    (data : any )=> data
+    props<{ foods: ReadonlyArray<any> }>() 
 )
-export const addFood = createAction(
+export const ADD_FOOD  = createAction(
     '[Food] add food',
     (data : any )=> data
 )
-export const addFoodSuccess = createAction(
+export const ADD_FOOD_SUCCESS  = createAction(
     '[Food] add food success',
     (data : any )=> data
 )
