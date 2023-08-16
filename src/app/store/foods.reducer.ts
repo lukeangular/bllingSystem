@@ -1,9 +1,14 @@
+import { createReducer,on } from "@ngrx/store";
+import { addFood, getFoodList } from "./foods.action";
 
-import { createReducer } from "@ngrx/store";
-import { Foods } from "./foods";
+export interface FoodsStae{
+    data: ReadonlyArray<any>
+}
 
-export const initialState: ReadonlyArray<Foods> = [];
+const initialSate : ReadonlyArray<any> = [];
 
 export const FoodsReducer = createReducer(
-    initialState
-);
+    initialSate,
+    on(getFoodList, (state)=> [...state]),
+    on(addFood, (state, food)=> [...state, food])
+)

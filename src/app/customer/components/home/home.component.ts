@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodService } from 'src/app/service/food.service';
+import { Store } from '@ngrx/store';
+import { getFoodList, addFood } from 'src/app/store/foods.action';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +10,9 @@ import { FoodService } from 'src/app/service/food.service';
 })
 export class HomeComponent implements OnInit {
 
-
   constructor(
-    private _foodService: FoodService
+    private _foodService: FoodService,
+    private _store: Store
   ) { }
 
   ngOnInit(): void {
@@ -25,11 +27,14 @@ export class HomeComponent implements OnInit {
 
   isFoodDataLoading: boolean = false;
   getFoodList() {
-    this.isFoodDataLoading = true;
+    // this.isFoodDataLoading = true;
     let getBody = {
       currentpage: this.curentPage,
       _limit: this.limit
     }
+    // dispatch method 
+    this._store.dispatch(getFoodList(getBody))
+
     this._foodService.getFood(getBody).subscribe((response) => {
       this.foodList = response.data
       this.total = response.count
@@ -48,6 +53,7 @@ export class HomeComponent implements OnInit {
   // add to card 
   addToCard(data:any) {
     console.warn("Add to card ", data)
+    this._store.dispatch(addFood(data))
   }
 
 }
