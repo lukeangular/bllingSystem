@@ -11,12 +11,6 @@ import { exhaustMap, map, catchError, concatMap } from "rxjs/operators";
 import { Observable, of } from 'rxjs';
 import { Action } from "@ngrx/store"; // Import the Action type
 
-interface FoodItem {
-    id: number;
-    name: string;
-    price: number;
-    category: string;
-}
 
 @Injectable()
 export class FoodsEffect {
@@ -26,7 +20,7 @@ export class FoodsEffect {
             ofType(GET_FOOD_LIST),
             exhaustMap((data) =>
                 this._foodService.getFood(data).pipe(
-                    map(response => GET_FOOD_LIST_SUCCESS({ foods: response.data as FoodItem[] })), // Use 'foods' property
+                    map(response => GET_FOOD_LIST_SUCCESS({ foods: response.data as any })), // Use 'foods' property
                     catchError(error => of(/* Handle error here */))
                 )
             )
