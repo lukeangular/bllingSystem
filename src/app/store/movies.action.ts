@@ -7,6 +7,7 @@ export const GET_MOVIE_LIST  = createAction(
 export const GET_MOVIE_LIST_SUCCESS  = createAction(
     '[Movie] get movie list success',
     props<{ movies: ReadonlyArray<Movie> }>()
+    // (movies: ReadonlyArray<Movie>) => ({movies})
 )
 export const ADD_MOVIE  = createAction(
     '[Movie] add movie',

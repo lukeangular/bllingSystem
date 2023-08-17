@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select  } from '@ngrx/store';
 import { GET_MOVIE_LIST, ADD_MOVIE } from 'src/app/store/movies.action';
-import { selectFoodList } from 'src/app/store/movies.selector';
+import { selectMovieList } from 'src/app/store/movies.selector';
 import { ModalComponent } from '../modal/modal.component';
 import {MatDialog} from '@angular/material/dialog';
 
@@ -12,7 +12,8 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
 
-  moviesList$ = this._store.select(selectFoodList);
+
+  moviesList$ = this._store.pipe(select(selectMovieList))
   
   constructor(
     private _store: Store,
@@ -20,6 +21,8 @@ export class HomeComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.getMovieListData();
+
+    console.warn("moviesList$ ", this.moviesList$)
   }
 
   

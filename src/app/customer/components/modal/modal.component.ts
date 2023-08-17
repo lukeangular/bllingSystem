@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MovieService } from 'src/app/service/movie.service';
+import { ADD_MOVIE } from 'src/app/store/movies.action';
+import { Store, select  } from '@ngrx/store';
 
 @Component({
   selector: 'app-modal',
@@ -13,7 +15,8 @@ export class ModalComponent {
 
   constructor(
     private _fb: FormBuilder,
-    private _movieService: MovieService
+    private _movieService: MovieService,
+    private _store: Store,
   ) {
     this.buildFoodFormBuilder();
   }
@@ -36,14 +39,17 @@ export class ModalComponent {
     this.addForm.patchValue({
       earning: earningValue
     });
-    this._movieService.addMovie(this.addForm.value).subscribe(
-      (res) => {
-        alert('Data added successfully');
-        this.addForm.reset();
-      },
-      (err) => {
-        console.log('Something went wrong', err);
-      }
-    );
+    this._store.dispatch(ADD_MOVIE(this.addForm.value))
+    alert('Data added successfully');
+    this.addForm.reset();
+    // this._movieService.addMovie(this.addForm.value).subscribe(
+    //   (res) => {
+    //     alert('Data added successfully');
+    //     this.addForm.reset();
+    //   },
+    //   (err) => {
+    //     console.log('Something went wrong', err);
+    //   }
+    // );
   }
 }

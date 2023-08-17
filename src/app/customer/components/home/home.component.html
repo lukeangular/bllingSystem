@@ -1,23 +1,24 @@
 <button mat-button mat-stroked-button color="warn" (click)="openDialog()">Add Item</button>
 <div class="food_wrapper">
-    <ng-container *ngIf="moviesList && moviesList.length>0; else elseBlock">
-        <mat-card class="food-card" *ngFor="let data of moviesList">
-            <mat-card-content>
-                <h3 mat-card-title>{{data?.name}}</h3>
-                <p mat-card-subtitle>{{data?.category}}</p>
-                <p mat-card-text>
-                    <span>Rs. {{data?.price}}</span>
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button (click)="addToCard(data)">Order Now</button>
-                <button mat-icon-button>
-                </button>
-            </mat-card-actions>
-        </mat-card>
+    <mat-card class="food-card" *ngFor="let data of moviesList$ | async">
+        <mat-card-content>
+            <h3 mat-card-title>{{data?.name}}</h3>
+            <p mat-card-subtitle>{{data?.releaseDate}}</p>
+            <p mat-card-text>
+                <span>Rs. {{data?.earning}}</span>
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="addToCard(data)">Order Now</button>
+            <button mat-icon-button>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+    <!-- <ng-container *ngIf="moviesList && moviesList.length>0; else elseBlock">
+
     </ng-container>
     <ng-template #elseBlock>
         <p *ngIf="!isMovieDataLoading">No Data Available</p>
         <p *ngIf="isMovieDataLoading">Loading...</p>
-    </ng-template>
+    </ng-template> -->
 </div>
