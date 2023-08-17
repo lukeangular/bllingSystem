@@ -14,14 +14,12 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 import { CustomerRoutingModule } from './customer-routing.module';
 import { HomeComponent } from './components/home/home.component';
-import { SelectedItemComponent } from './components/selected-item/selected-item.component';
 import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    SelectedItemComponent,
     ModalComponent
   ],
   imports: [

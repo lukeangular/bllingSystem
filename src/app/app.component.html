@@ -1,26 +1,5 @@
 <mat-toolbar color="primary" class="navbar">
-    <a *ngIf="!isAdmin" mat-button routerLink="/" class="active_menu"
-        [ngClass]="activeCategory=='menulist' ? 'active':'' "
-        (click)="getMenuByCategory('menulist')">
-        Menu list
-    </a>
-    <!-- <a *ngIf="!isAdmin" mat-button routerLink="/selected-item"
-        class="active_menu"
-        [ngClass]="activeCategory=='selecteditem' ? 'active':'' "
-        (click)="getMenuByCategory('selecteditem')">
-        Selected items
-    </a> -->
-    <a routerLink="/selected-item">
-        <mat-icon *ngIf="!isAdmin" matBadge="15" matBadgeColor="warn"
-            style="cursor: pointer;">
-            notifications
-        </mat-icon>
-    </a>
-    <a *ngIf="isAdmin" mat-button routerLink="/selected-item"
-        class="active_menu"
-        [ngClass]="activeCategory=='admin' ? 'active':'' ">
-        Billing System
-    </a>
+    <h6>NGRX State Management</h6>
 </mat-toolbar>
 
 <div class="main_container">

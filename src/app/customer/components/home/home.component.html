@@ -1,8 +1,7 @@
+<button mat-button mat-stroked-button color="warn" (click)="openDialog()">Add Item</button>
 <div class="food_wrapper">
-    <ng-container *ngIf="foodList && foodList.length>0; else elseBlock">
-
-        <mat-card class="food-card"
-            *ngFor="let data of foodList | paginate: { itemsPerPage: limit, currentPage: curentPage, totalItems: total }">
+    <ng-container *ngIf="moviesList && moviesList.length>0; else elseBlock">
+        <mat-card class="food-card" *ngFor="let data of moviesList">
             <mat-card-content>
                 <h3 mat-card-title>{{data?.name}}</h3>
                 <p mat-card-subtitle>{{data?.category}}</p>
@@ -18,13 +17,7 @@
         </mat-card>
     </ng-container>
     <ng-template #elseBlock>
-        <p *ngIf="!isFoodDataLoading">No Data Available</p>
-        <p *ngIf="isFoodDataLoading">Loading...</p>
+        <p *ngIf="!isMovieDataLoading">No Data Available</p>
+        <p *ngIf="isMovieDataLoading">Loading...</p>
     </ng-template>
-</div>
-<div class="pagination_wrapper">
-    <pagination-controls previousLabel nextLabel class="news_pagination_content"
-        (pageChange)="onPageChange($event)"
-        screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
-        screenReaderCurrentLabel="You're on page"></pagination-controls>
 </div>

@@ -1,38 +1,15 @@
-<h1 mat-dialog-title>MoMo</h1>
-<div mat-dialog-content class="mat_dialog">
-    <div class="mat_dilog_wrapper">
-        <div class="mat_dilog_wrapper__left">
-            <form>
-                <div class="mat_dilog_wrapper__left_discount">
-                    <mat-form-field>
-                        <mat-label>Discount in amount</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-                <div class="mat_dilog_wrapper__left_discount">
-                    <mat-form-field>
-                        <mat-label>Discount in percent</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-                <div class="mat_dilog_wrapper__left_discount">
-                    <button mat-raised-button color="primary" type="submit">Save</button>
-                </div>
-            </form>
-        </div>
-        <div class="mat_dilog_wrapper__right">
-            <div>
-                <button mat-icon-button>
-                    <mat-icon>add</mat-icon>
-                </button>
-
-                <button mat-icon-button>
-                    <mat-icon>remove</mat-icon>
-                </button>
-            </div>
-            <div class="button_wrapper">
-                <button mat-dialog-close mat-button color="accent">Cancel</button>
-            </div>
-        </div>
+<form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="mb-2">
+        <label for="nameInput" class="form-label">Movie Name</label>
+        <input type="text" class="form-control" id="nameInput" formControlName="name">
     </div>
-</div>
+    <div class="mb-2">
+        <label for="earningInput" class="form-label">Earning</label>
+        <input type="text" class="form-control" id="earningInput" formControlName="earning">
+    </div>
+    <div class="mb-2">
+        <label for="releaseDate" class="form-label">Release Date</label>
+        <input type="date" class="form-control" id="releaseDate" formControlName="releaseDate">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="addForm.invalid">Submit</button>
+</form>

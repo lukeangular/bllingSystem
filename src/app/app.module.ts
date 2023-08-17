@@ -15,8 +15,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { FoodsEffect } from './store/foods.effect';
-import { FoodsReducer } from './store/foods.reducer';
+import { MoviesReducer } from './store/movies.reducer';
+import { MoviesEffect } from './store/movies.effect';
+
 
 @NgModule({
   declarations: [
@@ -32,14 +33,15 @@ import { FoodsReducer } from './store/foods.reducer';
     MatMenuModule,
     MatBadgeModule,
     HttpClientModule,
-    StoreModule.forRoot({foods: FoodsReducer}),
+    // ngrx
+    StoreModule.forRoot({movies: MoviesReducer}),
     StoreDevtoolsModule.instrument(
       {
         maxAge: 25,
         logOnly: environment.production
       }
     ),
-    EffectsModule.forRoot([FoodsEffect])
+    EffectsModule.forRoot([MoviesEffect])
   ],
   providers: [],
   bootstrap: [AppComponent]

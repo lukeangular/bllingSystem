@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodService } from 'src/app/service/food.service';
 import { Store, select  } from '@ngrx/store';
-import { GET_FOOD_LIST, ADD_FOOD } from 'src/app/store/foods.action';
-import { selectFoodList } from 'src/app/store/foods.selector';
-
-interface FoodResponse {
-  count: number;
-  data: any[]; 
-}
-
+import { GET_MOVIE_LIST, ADD_MOVIE } from 'src/app/store/movies.action';
+import { selectFoodList } from 'src/app/store/movies.selector';
+import { ModalComponent } from '../modal/modal.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-home',
@@ -17,48 +12,36 @@ interface FoodResponse {
 })
 export class HomeComponent implements OnInit {
 
-  foodsList$ = this._store.select(selectFoodList);
-
+  moviesList$ = this._store.select(selectFoodList);
   
   constructor(
-    private _foodService: FoodService,
-    private _store: Store
+    private _store: Store,
+    public dialog: MatDialog
   ) { }
   ngOnInit(): void {
-    this.getFoodListData();
-
-    this.foodsList$.subscribe((foods)=>{
-      console.warn("data get => ",foods)
-    });
+    this.getMovieListData();
   }
 
-  // food list
-  foodList: any = [];
-  curentPage: number = 1;
-  limit: number = 16;
-  total: any;
-
-  isFoodDataLoading: boolean = false;
-  getFoodListData() {
-    this.isFoodDataLoading = true;
-    let getBody = {
-      currentpage: this.curentPage,
-      _limit: this.limit
-    }
+  
+  // movie list
+  moviesList: any = []
+  isMovieDataLoading: boolean = false;
+  getMovieListData() {
+    this.isMovieDataLoading = true;
     // dispatch method 
-    this._store.dispatch(GET_FOOD_LIST({ data: getBody }))
-    this.isFoodDataLoading = false;
-  }
-
-  onPageChange(event: any) {
-    this.curentPage = event;
-    this.getFoodListData();
+    this._store.dispatch(GET_MOVIE_LIST())
+    this.isMovieDataLoading = false;
   }
 
 
   // add to card 
   addToCard(data:any) {
-    this._store.dispatch(ADD_FOOD(data))
+    this._store.dispatch(ADD_MOVIE(data))
+  }
+
+
+  openDialog() {
+    this.dialog.open(ModalComponent);
   }
 
 }
