@@ -15,7 +15,8 @@ export class MovieService {
   //get moie list
   getMovie() {
     let url = `http://localhost:3000/movie`
-    return this._http.get(url)
+    // return this._http.get<ReadonlyArray<Movie>>(url)
+    return this._http.get<Movie[]>(url)
   }
 
   //add or update movie

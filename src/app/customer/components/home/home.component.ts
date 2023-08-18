@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select  } from '@ngrx/store';
-import { GET_MOVIE_LIST, ADD_MOVIE } from 'src/app/store/movies.action';
+import { GET_MOVIE_LIST } from 'src/app/store/movies.action';
 import { selectMovieList } from 'src/app/store/movies.selector';
 import { ModalComponent } from '../modal/modal.component';
 import {MatDialog} from '@angular/material/dialog';
@@ -27,19 +27,12 @@ export class HomeComponent implements OnInit {
 
   
   // movie list
-  moviesList: any = []
   isMovieDataLoading: boolean = false;
   getMovieListData() {
     this.isMovieDataLoading = true;
     // dispatch method 
     this._store.dispatch(GET_MOVIE_LIST())
     this.isMovieDataLoading = false;
-  }
-
-
-  // add to card 
-  addToCard(data:any) {
-    this._store.dispatch(ADD_MOVIE(data))
   }
 
 
