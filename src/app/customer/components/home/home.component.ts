@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, select  } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { GET_MOVIE_LIST } from 'src/app/store/movies.action';
-import { selectMovieList } from 'src/app/store/movies.selector';
+import { MoviesSelector } from 'src/app/store/movies.selector';
 import { ModalComponent } from '../modal/modal.component';
 import {MatDialog} from '@angular/material/dialog';
+import { MoviesState } from 'src/app/store/movies.reducer';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,13 @@ import {MatDialog} from '@angular/material/dialog';
 export class HomeComponent implements OnInit {
 
 
-  moviesList$ = this._store.pipe(select(selectMovieList))
+  // moviesList$ = this._store.pipe(select(MoviesSelector))
+  moviesList$ = this._store.pipe(select(MoviesSelector))
+
+
   
   constructor(
-    private _store: Store,
+    private _store: Store<MoviesState>,
     public dialog: MatDialog
   ) { }
   ngOnInit(): void {

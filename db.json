@@ -18,6 +18,12 @@
       "earning": 300,
       "releaseDate": "2023-08-01",
       "id": 3
+    },
+    {
+      "name": "Fight club",
+      "earning": 900,
+      "releaseDate": "2023-08-26",
+      "id": 4
     }
   ]
 }

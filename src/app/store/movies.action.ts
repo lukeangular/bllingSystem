@@ -1,28 +1,21 @@
 import { createAction, props } from "@ngrx/store";
 import { Movie } from "./movies";
 
-export const ActionTypes = {
-    GetMovieList: '[Movie] Get Movie List',
-    GetMovieListSuccess: '[Movie] Get Movie List Success',
-    AddMovie: '[Movie] Add Movie',
-    AddMovieSuccess: '[Movie] Add Movie Success',
-};
-
 export const GET_MOVIE_LIST = createAction(
-    ActionTypes.GetMovieList
+    '[Movie] Get Movie List'
 );
 
-export const GET_MOVIE_LIST_SUCCESS = createAction(
-    ActionTypes.GetMovieListSuccess,
+export const GET_MOVIE_SUCCESS_LIST = createAction(
+    '[Movie] Get Movie Success List',
     props<{ movies: ReadonlyArray<Movie> }>()
 );
 
 export const ADD_MOVIE = createAction(
-    ActionTypes.AddMovie,
+    '[Movie] Add Movie',
     (movie: Movie) => ({ movie })
 );
 
 export const ADD_MOVIE_SUCCESS = createAction(
-    ActionTypes.AddMovieSuccess,
+    '[Movie] Add Movie Success',
     (movie: Movie) => ({ movie })
 );
