@@ -16,8 +16,8 @@ export const userMoviesSelector = createSelector(
     }
 )
 
+// it sill relase holding data
 userMoviesSelector.release();
-
 
 // select data base on your property (parameter) pass from component 
 export const selectGreater = (earning: number) => createSelector(

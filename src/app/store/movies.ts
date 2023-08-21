@@ -3,7 +3,6 @@ export class Movie {
     name: string;
     earning: number;
     releaseDate: string;
-    // add for advance selector
     username: string;
 
     constructor(
