@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { GET_MOVIE_LIST } from 'src/app/store/movies.action';
-import { MoviesSelector } from 'src/app/store/movies.selector';
+import { MoviesSelector, selectGreater, userMoviesSelector } from 'src/app/store/movies.selector';
 import { ModalComponent } from '../modal/modal.component';
 import {MatDialog} from '@angular/material/dialog';
 import { MoviesState } from 'src/app/store/movies.reducer';
@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
 
 
   // moviesList$ = this._store.pipe(select(MoviesSelector))
-  moviesList$ = this._store.pipe(select(MoviesSelector))
-
+  // moviesList$ = this._store.pipe(select(userMoviesSelector))
+  moviesList$ = this._store.pipe(select(selectGreater(500)))
 
   
   constructor(
@@ -25,10 +25,7 @@ export class HomeComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.getMovieListData();
-
-    console.warn("moviesList$ ", this.moviesList$)
   }
-
   
   // movie list
   isMovieDataLoading: boolean = false;
@@ -38,7 +35,6 @@ export class HomeComponent implements OnInit {
     this._store.dispatch(GET_MOVIE_LIST())
     this.isMovieDataLoading = false;
   }
-
 
   openDialog() {
     this.dialog.open(ModalComponent);

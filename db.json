@@ -24,6 +24,26 @@
       "earning": 900,
       "releaseDate": "2023-08-26",
       "id": 4
+    },
+    {
+      "name": "dark",
+      "earning": 900,
+      "releaseDate": "2023-09-02",
+      "id": 5
+    },
+    {
+      "name": "Raatsan",
+      "earning": 400,
+      "releaseDate": "2023-08-21",
+      "username": "sundar",
+      "id": 6
+    },
+    {
+      "name": "Titanic",
+      "earning": 1000,
+      "releaseDate": "2023-08-23",
+      "username": "sundar",
+      "id": 7
     }
   ]
 }

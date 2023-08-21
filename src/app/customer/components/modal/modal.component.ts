@@ -28,6 +28,7 @@ export class ModalComponent {
       name: ["", [Validators.required]],
       earning: ["", [Validators.required]],
       releaseDate: ["", [Validators.required]],
+      username:["sundar"] // for advance selector
     });
   }
 

@@ -4,6 +4,8 @@ import { Movie } from "./movies";
 
 export interface MoviesState {
     movies: ReadonlyArray<Movie>;
+    //used for advance selector
+    user: ReadonlyArray<string>;
 }
 const initialState: ReadonlyArray<Movie> = [];
 

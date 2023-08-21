@@ -24,7 +24,7 @@ export class MoviesEffect {
             mergeMap(() =>
                 this._movieService.getMovie().pipe(
                     map((movies) => GET_MOVIE_SUCCESS_LIST({ movies })),
-                    catchError(error => of())
+                    catchError(error => of(/* Handle error action here */))
                 )
             )
         )
